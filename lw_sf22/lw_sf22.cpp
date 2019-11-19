@@ -1306,7 +1306,7 @@ void LW_SF22::i2cReadSamplingRate(int16_t report) {
 // This will send a save command.
 // A new token must be requested and recieved and then passed to this
 // function to send with the command
-void LW_SF22::i2cWriteSaveParameters(void) {
+void LW_SF22::i2cWriteSaveParameters(uint16_t Token) {
   Wire.beginTransmission(I2CAddress);
   Wire.write(12);    // Register
 
@@ -1318,7 +1318,7 @@ void LW_SF22::i2cWriteSaveParameters(void) {
 // This will send a Reset command.
 // A new token must be requested and recieved and then passed to this
 // function to send with the command
-void LW_SF22::i2cWriteResetCommand(void) {
+void LW_SF22::i2cWriteResetCommand(uint16_t Token) {
   Wire.beginTransmission(I2CAddress);
   Wire.write(14);    // Register
 
@@ -1328,7 +1328,7 @@ void LW_SF22::i2cWriteResetCommand(void) {
 }
 
 // This will change the Serial Baudrate
-void LW_SF22::i2cWriteSerialBaudrate(uint8_t Rate) {
+void LW_SF22::i2cWriteSerialBaudrate(uint32_t Rate) {
   Wire.beginTransmission(I2CAddress);
   Wire.write(31);    // Register
 
@@ -1338,7 +1338,7 @@ void LW_SF22::i2cWriteSerialBaudrate(uint8_t Rate) {
   Wire.write((Rate >> 24) & 0xFF);
   Wire.endTransmission();
 
-  serialBaudrate = rate;
+  serialBaudrate = Rate;
 }
 
 // This will request the current I2C Address

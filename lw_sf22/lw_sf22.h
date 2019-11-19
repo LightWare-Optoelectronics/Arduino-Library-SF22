@@ -114,13 +114,13 @@ class LW_SF22{
 
 
 		// This will request the next usable Token
-		void i2cReadToken(void);
+		void i2cReadToken(int16_t report);
 
 		// This will request the APD Temperature
-		void i2cReadAPDTemp(void);
+		void i2cReadAPDTemp(int16_t report);
 
 		// This will request the Sampling Rate
-		void i2cReadSamplingRate(void);
+		void i2cReadSamplingRate(int16_t report);
 
 		// This will send a save command.
 		// A new token must be requested and recieved and then passed to this
@@ -136,7 +136,7 @@ class LW_SF22{
 		void i2cWriteSerialBaudrate(uint32_t Rate);
 
 		// This will request the current I2C Address
-		void i2cReadI2CAddress(void);
+		void i2cReadI2CAddress(int16_t report);
 
 		// This will change the I2C interface Address
 		void i2cWriteI2CAddress(uint32_t Address);

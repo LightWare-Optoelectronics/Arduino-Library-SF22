@@ -65,9 +65,9 @@ sf22.i2cReadHardwareModel(int16_t report); 						// This function reads the Hard
 sf22.i2cReadHardwareVersion(int16_t report); 					// This function reads the Hardware Version then save it in the global variable
 sf22.i2cReadFirmwareVersion(int16_t report); 					// This function reads the Firmware Version then save it in the global variable
 sf22.i2cReadSerialNumber(int16_t report); 						// This function reads the Serial Number then save it in the global variable
-sf22.i2cReadToken(void); 										// This will request the next usable Token
-sf22.i2cReadAPDTemp(void); 										// This will request the APD Temperature
-sf22.i2cReadSamplingRate(void); 								// This will request the Sampling Rate
+sf22.i2cReadToken(int16_t report); 										// This will request the next usable Token
+sf22.i2cReadAPDTemp(int16_t report); 										// This will request the APD Temperature
+sf22.i2cReadSamplingRate(int16_t report); 								// This will request the Sampling Rate
 																// Value of between 1 and 1000 samples/second	
 sf22.i2cWriteSamplingRate(uint16_t Rate); 						// This will change the Sampling Rate
 																// Value of between 1 and 1000 samples/second	
@@ -80,7 +80,7 @@ sf22.i2cWriteResetCommand(uint16_t Token); 						// This will send a Reset comma
 sf22.i2cWriteSerialBaudrate(uint32_t Rate); 					// This will change the Serial Baudrate. Rate is the position in the table below
 																// for example Rate = 4 is 115200 baudrate
 																// serialBaudTable[9] = { 9600, 19200, 38400, 57600, 115200, 230400, 460800, 921600, 1440000 };
-sf22.i2cReadI2CAddress(void); 									// This will request the current I2C Address
+sf22.i2cReadI2CAddress(int16_t report); 									// This will request the current I2C Address
 sf22.i2cWriteI2CAddress(uint32_t Address); 						// This will change the I2C interface Address
 
 

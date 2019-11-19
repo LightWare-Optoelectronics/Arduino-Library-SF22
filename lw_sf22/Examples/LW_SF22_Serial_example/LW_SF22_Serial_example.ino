@@ -63,7 +63,7 @@ void loop() {
   if (new_data == 1){
     Serial.print(sf22.firstRaw_cm,DEC);
     Serial.print(" ");
-    Serial.print(sf22.lastRaw_cm,DEC);
+    Serial.print(sf22.firstStrength_cm,DEC);
     Serial.print(" ");
     Serial.println(sf22.APDTemperature,DEC);
     new_data = 0;
