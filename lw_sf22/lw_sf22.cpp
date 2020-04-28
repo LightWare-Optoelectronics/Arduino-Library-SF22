@@ -29,6 +29,8 @@ void LW_SF22::test(){
 
 LW_SF22::LW_SF22(uint8_t Wire_i2c, HardwareSerial &print){
 	Serial = &print;
+
+  Wire.setClock(100000);
 }
 
 
