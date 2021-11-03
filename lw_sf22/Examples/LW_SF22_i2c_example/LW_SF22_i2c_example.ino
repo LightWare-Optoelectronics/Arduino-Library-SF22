@@ -14,6 +14,14 @@ void setup() {
   //this is the serial port for the terminal window
   Serial.begin(115200);
 
+  //Switch I2C to Binary Mode
+  //Have to send the three byte 0x78,0xAA,0xAA to unit at start to switch to Binary mode
+  Wire.beginTransmission(sf22.I2CAddress);
+  Wire.write(120);    // Set to Binary mode
+  Wire.write(170);    // Set to Binary mode
+  Wire.write(170);    // Set to Binary mode
+  Wire.endTransmission();
+
   // read the Hardware model from the SF22. The 1 passed to the function
   // will enable the display of the result on the Serial Terminal.
   sf22.i2cReadHardwareModel(1);
